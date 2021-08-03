@@ -1,4 +1,5 @@
-﻿INSERT INTO Products
+﻿USE MonsterHunter;
+INSERT INTO Products
 VALUES
 -- Product Name, Description, Category (i.e. Consumable/Weapon/Armour/Decoration), Rarity
 
