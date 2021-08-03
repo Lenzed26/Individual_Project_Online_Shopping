@@ -15,11 +15,11 @@ Goals for this sprint are:
 
 Before Sprint start
 
-![](\Images\Sprint1Goals.jpg)
+![](..\Images\Sprint1Goals.jpg)
 
 After Sprint start
 
-![](\Images\Sprint1GoalsAfter.jpg)
+![](..\Images\Sprint1GoalsAfter.jpg)
 
 ### Sprint 1 Review
 
