@@ -1,4 +1,5 @@
-﻿INSERT INTO Hunters 
+﻿USE MonsterHunter;
+INSERT INTO Hunters 
 VALUES
 ('Aiden', 'Astera'),
 ('Ace Lancer', 'Val Habar'),
