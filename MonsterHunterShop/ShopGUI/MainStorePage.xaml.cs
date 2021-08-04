@@ -39,7 +39,5 @@ namespace ShopGUI
         {
             ProductListBox.ItemsSource = _productManager.RetrieveAllProducts();
         }
-
-
     }
 }

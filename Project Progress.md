@@ -39,16 +39,19 @@ Goals completed:
 - [x] User Story 4.2 : Adding Data
 - [x] User Story 1.2 : Opening the application
 
-Retrospective:
+**Retrospective:**
 
-The good:
-I predicted what I could do for this sprint and achieved all my goals within a good time frame. All goals have been met with the product owner being satisfied
+<u>The good:</u>
 
-The bad:
+- I predicted what I could do for this sprint and achieved all my goals within a good time frame. All goals have been met with the product owner being satisfied
 
-I definitely could have spent a shorter amount of time creating dummy data for my database and allocated more time into other parts of the user story such as the GUI.
+<u>The bad:</u>
 
-What to change:
+- I definitely could have spent a shorter amount of time creating dummy data for my database and allocated more time into other parts of the user story such as the GUI.
 
-Allocate to a certain time frame and give each user story equal time to be done, if finished early start the next user story, if unfinished leave it and start the next user story, work on it if there is spare time.
 
+<u>What to change:</u>
+
+- Allocate to a certain time frame and give each user story equal time to be done, if finished early start the next user story, if unfinished leave it and start the next user story, work on it if there is spare time.
+
+### Sprint 2

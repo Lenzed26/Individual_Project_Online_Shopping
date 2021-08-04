@@ -87,7 +87,7 @@ namespace ShopData
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.OrderDetails)
                     .HasForeignKey(d => d.ProductId)
-                    .HasConstraintName("FK__OrderDeta__Produ__412EB0B6");
+                    .HasConstraintName("FK__OrderDeta__Produ__49C3F6B7");
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -99,7 +99,9 @@ namespace ShopData
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Description).IsUnicode(false);
+                entity.Property(e => e.Description)
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ProductName)
                     .IsRequired()

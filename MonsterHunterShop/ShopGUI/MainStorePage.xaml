@@ -24,7 +24,17 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <ListBox x:Name="ProductListBox" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="3"></ListBox>
+        <ListView x:Name="ProductListBox" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="3">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding ProductName}"></GridViewColumn>
+                    <GridViewColumn Header="Category" Width="150" DisplayMemberBinding="{Binding Category}"></GridViewColumn>
+                    <GridViewColumn Header="Rarity" Width="50" DisplayMemberBinding="{Binding Rarity}"></GridViewColumn>
+                    <GridViewColumn Header="Price" Width="150" DisplayMemberBinding="{Binding UnitPrice, StringFormat={}{0}z}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
         <Button x:Name="BackToMain" Grid.Column="0" Grid.Row="0" Content="Back" Margin="10 10" Click="BackButton_Click"></Button>
+        
     </Grid>
 </Window>

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using ShopData;
 
 namespace ShopBusiness
@@ -17,5 +19,91 @@ namespace ShopBusiness
                 return db.Products.ToList();
             }
         }
+
+        public void SetSelectedProducted(object selectedItem)
+        {
+            SelectedProduct = (Product)selectedItem;
+        }
+
+        public void Create(string productName, string category, int rarity, decimal price, string description = null)
+        {
+            var newProduct = new Product() { ProductName = productName, Category = category, Rarity = rarity, UnitPrice = price, Description = description };
+            using (var db = new MonsterHunterContext())
+            {
+                var checkDuplicate = db.Products.Where(p => p.ProductName.Equals(productName)).FirstOrDefault();
+                if (checkDuplicate == null)
+                {
+                    db.Products.Add(newProduct);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    throw new ArgumentException("Item already exists");
+                }
+            }
+        }
+
+        public bool Update(string productName, string category, int rarity, decimal price, string description = null)
+        {
+            using (var db = new MonsterHunterContext())
+            {
+                SelectedProduct = db.Products.Where(p => p.ProductName.Equals(productName)).FirstOrDefault();
+                if(SelectedProduct == null)
+                {
+                    return false;
+                }
+                SelectedProduct.Category = category;
+                SelectedProduct.Rarity = rarity;
+                SelectedProduct.UnitPrice = price;
+                if (SelectedProduct.Description.Equals(String.Empty))
+                {
+                    SelectedProduct.Description = description;
+                }
+                db.SaveChanges();
+            }
+            return true;
+        }
+        public bool Update(string oldProductName, string newProductName, string category, int rarity, decimal price, string description = null)
+        {
+            using (var db = new MonsterHunterContext())
+            {
+                SelectedProduct = db.Products.Where(p => p.ProductName.Equals(oldProductName)).FirstOrDefault();
+                if (SelectedProduct == null)
+                {
+                    return false;
+                }
+                SelectedProduct.ProductName = newProductName;
+                SelectedProduct.Category = category;
+                SelectedProduct.Rarity = rarity;
+                SelectedProduct.UnitPrice = price;
+                if (SelectedProduct.Description.Equals(String.Empty))
+                {
+                    SelectedProduct.Description = description;
+                }
+                db.SaveChanges();
+            }
+            return true;
+        }
+
+        public bool Delete(string productName)
+        {
+            using (var db = new MonsterHunterContext())
+            {
+                SelectedProduct = db.Products.Where(p => p.ProductName == productName).FirstOrDefault();
+                if (SelectedProduct == null)
+                {
+                    Debug.WriteLine($"Product {productName} is not found");
+                    return false;
+                }
+
+                db.Remove(SelectedProduct);
+
+                var RemoveFromOrderDetails = db.OrderDetails.Include(p => p.Product).Where(p => p.Product.ProductName.Equals(productName)).FirstOrDefault();
+                db.Remove(RemoveFromOrderDetails);
+            }
+            return true;
+        }
+
+        
     }
 }

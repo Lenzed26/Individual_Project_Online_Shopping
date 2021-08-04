@@ -20,10 +20,5 @@ namespace ShopData
         public int Rarity { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-
-        public override string ToString()
-        {
-            return $"{(ProductName.Length < 9 ? String.Concat(ProductName, "\t") : ProductName)} \t Type: {Category} \t Rarity: {Rarity} \t {UnitPrice}z";
-        }
     }
 }
