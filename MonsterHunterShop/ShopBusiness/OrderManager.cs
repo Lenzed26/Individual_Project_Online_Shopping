@@ -6,7 +6,7 @@ using ShopData;
 
 namespace ShopBusiness
 {
-    class OrderManager
+    public class OrderManager
     {
         public Order SelectedOrder { get; set; }
 
@@ -88,7 +88,7 @@ namespace ShopBusiness
                 db.Orders.Remove(SelectedOrder);
 
                 var RemoveFromOrderDetails = db.OrderDetails.Include(o => o.Order).Where(i => i.Order.OrderId == orderId).FirstOrDefault();
-                db.OrderDetails.Remove(RemoveFromOrderDetails);
+                if(RemoveFromOrderDetails != null) db.OrderDetails.Remove(RemoveFromOrderDetails);
 
                 db.SaveChanges();
             }

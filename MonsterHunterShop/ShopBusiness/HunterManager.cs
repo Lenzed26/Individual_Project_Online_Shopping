@@ -6,7 +6,7 @@ using ShopData;
 
 namespace ShopBusiness
 {
-    class HunterManager
+    public class HunterManager
     {
         public Hunter SelectedHunter { get; set; }
 
@@ -91,10 +91,10 @@ namespace ShopBusiness
                 db.Remove(SelectedHunter);
 
                 var RemoveFromOrders = db.Orders.Include(h => h.Hunter).Where(n => n.Hunter.Name.Equals(name)).FirstOrDefault();
-                db.Remove(RemoveFromOrders);
+                if(RemoveFromOrders != null) db.Remove(RemoveFromOrders);
 
                 var RemoveFromOrderDetails = db.OrderDetails.Include(o => o.Order).ThenInclude(h => h.Hunter).Where(n => n.Order.Hunter.Name.Equals(name)).FirstOrDefault();
-                db.Remove(RemoveFromOrderDetails);
+                if (RemoveFromOrderDetails != null) db.Remove(RemoveFromOrderDetails);
 
                 db.SaveChanges();
             }

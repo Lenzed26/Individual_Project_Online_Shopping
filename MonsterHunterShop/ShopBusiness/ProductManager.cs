@@ -55,7 +55,7 @@ namespace ShopBusiness
                 SelectedProduct.Category = category;
                 SelectedProduct.Rarity = rarity;
                 SelectedProduct.UnitPrice = price;
-                if (SelectedProduct.Description.Equals(String.Empty))
+                if (SelectedProduct.Description == null)
                 {
                     SelectedProduct.Description = description;
                 }
@@ -76,7 +76,7 @@ namespace ShopBusiness
                 SelectedProduct.Category = category;
                 SelectedProduct.Rarity = rarity;
                 SelectedProduct.UnitPrice = price;
-                if (SelectedProduct.Description.Equals(String.Empty))
+                if (SelectedProduct.Description == null)
                 {
                     SelectedProduct.Description = description;
                 }
@@ -99,7 +99,7 @@ namespace ShopBusiness
                 db.Remove(SelectedProduct);
 
                 var RemoveFromOrderDetails = db.OrderDetails.Include(p => p.Product).Where(p => p.Product.ProductName.Equals(productName)).FirstOrDefault();
-                db.Remove(RemoveFromOrderDetails);
+                if (RemoveFromOrderDetails != null) db.Remove(RemoveFromOrderDetails);
 
                 db.SaveChanges();
             }

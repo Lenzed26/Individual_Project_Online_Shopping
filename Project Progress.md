@@ -55,3 +55,47 @@ Goals completed:
 - Allocate to a certain time frame and give each user story equal time to be done, if finished early start the next user story, if unfinished leave it and start the next user story, work on it if there is spare time.
 
 ### Sprint 2
+
+Goals for this sprint are:
+
+- [ ] User Story 4.3 : Reading Data
+- [ ] User Story 4.4 : Deleting Data
+- [ ] User Story 4.5 : Updating Data
+- [ ] User Story 6.1 : Unit Tests for Business Layer
+- [ ] User Story 6.2 : Unit Tests for Data Layer
+
+Before Sprint
+
+![](/Images/Sprint2GoalsBefore.jpg)
+
+After Sprint
+
+![](/Images/Sprint2GoalsAfter.jpg)
+
+Unit Tests
+
+![](/Images/Sprint2UnitTests.jpg)
+
+### Sprint 2 Review
+
+Goals Complete:
+
+- [x] User Story 4.3 : Reading Data
+- [x] User Story 4.4 : Deleting Data
+- [x] User Story 4.5 : Updating Data
+- [x] User Story 6.1 : Unit Tests for Business Layer
+- [x] User Story 6.2 : Unit Tests for Data Layer
+
+**Retrospective**
+
+<u>The good</u>
+
+- All goals have been met, basic GUI read functionality added to a ListView for Products table. All CRUD functions have been unit tested and ready to be implemented
+
+<u>The bad</u>
+
+- Creating Unit Tests and debugging them dragged the initial time schedule behind by hours, I did underestimated creating the Unit Tests with full code coverage to take  
+
+<u>What to change</u>
+
+- Change the GUI to include Material Design as it has a better design than the default materials.

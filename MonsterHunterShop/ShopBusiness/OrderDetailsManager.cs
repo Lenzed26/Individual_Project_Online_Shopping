@@ -7,7 +7,7 @@ using ShopData;
 
 namespace ShopBusiness
 {
-    class OrderDetailsManager
+    public class OrderDetailsManager
     {
         public OrderDetail SelectedOrderDetail { get; set; }
 
