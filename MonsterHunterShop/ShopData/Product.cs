@@ -23,7 +23,7 @@ namespace ShopData
 
         public override string ToString()
         {
-            return $"{ProductName} \t Type: {Category} \t Rarity: {Rarity} \t {UnitPrice}z";
+            return $"{(ProductName.Length < 9 ? String.Concat(ProductName, "\t") : ProductName)} \t Type: {Category} \t Rarity: {Rarity} \t {UnitPrice}z";
         }
     }
 }
