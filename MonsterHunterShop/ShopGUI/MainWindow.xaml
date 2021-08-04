@@ -58,6 +58,6 @@
         </Grid.Resources>
 
         <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Monster Hunter Shop" FontSize="48"/>
-        <Button Grid.Row="3" Grid.Column="2" Content="Enter" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Style="{StaticResource RoundedButton}"/>
+        <Button x:Name="EnterButton" Grid.Row="3" Grid.Column="2" Content="Enter" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Style="{StaticResource RoundedButton}" Click="EnterButton_Clicked"/>
     </Grid>
 </Window>

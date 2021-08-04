@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.UI.Xaml" Version="2.6.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ShopBusiness\ShopBusiness.csproj" />
   </ItemGroup>
 

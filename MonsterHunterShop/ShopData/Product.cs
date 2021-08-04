@@ -20,5 +20,10 @@ namespace ShopData
         public int Rarity { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
+        public override string ToString()
+        {
+            return $"{ProductName} \t Type: {Category} \t Rarity: {Rarity} \t {UnitPrice}z";
+        }
     }
 }

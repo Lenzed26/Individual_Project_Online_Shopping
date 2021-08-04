@@ -48,5 +48,7 @@ The bad:
 
 I definitely could have spent a shorter amount of time creating dummy data for my database and allocated more time into other parts of the user story such as the GUI.
 
+What to change:
 
+Allocate to a certain time frame and give each user story equal time to be done, if finished early start the next user story, if unfinished leave it and start the next user story, work on it if there is spare time.
 

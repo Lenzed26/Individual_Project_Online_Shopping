@@ -12,24 +12,34 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ShopBusiness;
 
 namespace ShopGUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainStorePage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainStorePage : Window
     {
-        public MainWindow()
+        private ProductManager _productManager = new ProductManager();
+        public MainStorePage()
         {
             InitializeComponent();
+            PopulateListBox();
         }
 
-        private void EnterButton_Clicked(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            MainStorePage msp = new MainStorePage();
-            msp.Show();
+            MainWindow mw = new MainWindow();
+            mw.Show();
             this.Close();
         }
+
+        private void PopulateListBox()
+        {
+            ProductListBox.ItemsSource = _productManager.RetrieveAllProducts();
+        }
+
+
     }
 }
