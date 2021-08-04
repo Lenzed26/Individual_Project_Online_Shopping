@@ -100,10 +100,10 @@ namespace ShopBusiness
 
                 var RemoveFromOrderDetails = db.OrderDetails.Include(p => p.Product).Where(p => p.Product.ProductName.Equals(productName)).FirstOrDefault();
                 db.Remove(RemoveFromOrderDetails);
+
+                db.SaveChanges();
             }
             return true;
         }
-
-        
     }
 }

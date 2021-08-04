@@ -19,5 +19,10 @@ namespace ShopData
 
         public virtual Hunter Hunter { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
+        public override string ToString()
+        {
+            return $"[{OrderId},{HunterId}]: {OrderDate}, {(DeliveryDate != null ? DeliveryDate: "Not delivered yet")}";
+        }
     }
 }
