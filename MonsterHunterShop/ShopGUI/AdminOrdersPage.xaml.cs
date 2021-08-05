@@ -10,34 +10,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ShopBusiness;
 
 namespace ShopGUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AdminOrdersPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AdminOrdersPage : Window
     {
-        public MainWindow()
+        private OrderDetailsManager _odm = new OrderDetailsManager();
+        public AdminOrdersPage()
         {
             InitializeComponent();
             CentreScreen();
-        }
-
-        private void EnterButton_Clicked(object sender, RoutedEventArgs e)
-        {
-            MainStorePage msp = new MainStorePage();
-            msp.Show();
-            this.Close();
-        }
-
-        private void AdminButton_Clicked(object sender, RoutedEventArgs e)
-        {
-            AdminMainPage admin = new AdminMainPage();
-            admin.Show();
-            this.Close();
+            PopulateListView();
         }
         public void CentreScreen()
         {
@@ -47,6 +35,18 @@ namespace ShopGUI
             double windowHeight = this.Height;
             this.Left = (screenWidth / 2) - (windowWidth / 2);
             this.Top = (screenHeight / 2) - (windowHeight / 2);
+        }
+
+        public void PopulateListView()
+        {
+            OrdersListView.ItemsSource = _odm.RetrieveAllOrderDetails();
+        }
+
+        private void BackToAdmin_Click(object sender, RoutedEventArgs e)
+        {
+            AdminMainPage admin = new AdminMainPage();
+            admin.Show();
+            this.Close();
         }
     }
 }

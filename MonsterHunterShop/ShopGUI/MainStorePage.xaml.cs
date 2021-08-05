@@ -25,7 +25,9 @@ namespace ShopGUI
         public MainStorePage()
         {
             InitializeComponent();
+            CentreScreen();
             PopulateListBox();
+            
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -38,6 +40,16 @@ namespace ShopGUI
         private void PopulateListBox()
         {
             ProductListBox.ItemsSource = _productManager.RetrieveAllProducts();
+        }
+
+        public void CentreScreen()
+        {
+            double screenWidth = SystemParameters.PrimaryScreenWidth;
+            double screenHeight = SystemParameters.PrimaryScreenHeight;
+            double windowWidth = this.Width;
+            double windowHeight = this.Height;
+            this.Left = (screenWidth / 2) - (windowWidth / 2);
+            this.Top = (screenHeight / 2) - (windowHeight / 2);
         }
     }
 }

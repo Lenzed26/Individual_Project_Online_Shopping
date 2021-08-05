@@ -7,6 +7,17 @@ using ShopData;
 
 namespace ShopBusiness
 {
+    public class DetailedOrder
+    {
+        public int OrderDetailsId { get; set; }
+        public int? OrderId { get; set; }
+        public string HunterName { get; set; }
+        public int? ProductId { get; set; }
+        public string ProductName { get; set; }
+        public int Quantity { get; set; }
+        public decimal Price { get; set; }
+    }
+
     public class OrderDetailsManager
     {
         public OrderDetail SelectedOrderDetail { get; set; }
@@ -18,6 +29,44 @@ namespace ShopBusiness
                 return db.OrderDetails.ToList();
             }
         }
+
+        public List<DetailedOrder> RetrieveAllDetailedOrders()
+        {
+            DetailedOrder detailedOrder = new DetailedOrder();
+            List<DetailedOrder> returnList = new List<DetailedOrder>();
+            using (var db = new MonsterHunterContext())
+            {
+                var query = db.OrderDetails.Include(o => o.Order).ThenInclude(h => h.Hunter).Include(p => p.Product).Select(o => new { OrderDetailsId = o.OrderDetailsId, OrderId = o.OrderId, ProductId = o.ProductId, HunterName = o.Order.Hunter.Name, ProductName = o.Product.ProductName, Quantity = o.Quantity, Price = o.UnitPrice });
+                        //from od in db.OrderDetails
+                        //join o in db.Orders on od.OrderId equals o.OrderId
+                        //join h in db.Hunters on o.HunterId equals h.HunterId
+                        //join p in db.Products on od.ProductId equals p.ProductId
+                        //select new
+                        //{
+                        //    OrderDetailsId = od.OrderDetailsId,
+                        //    OrderId = od.OrderId,
+                        //    ProductId = od.ProductId,
+                        //    HunterName = h.Name,
+                        //    ProductName = p.ProductName,
+                        //    Quantity = od.Quantity,
+                        //    Price = od.UnitPrice
+                        //};
+
+                foreach (var item in query)
+                {                    
+                    detailedOrder.OrderDetailsId = item.OrderDetailsId;
+                    detailedOrder.OrderId = item.OrderId;
+                    detailedOrder.ProductId = item.ProductId;
+                    detailedOrder.HunterName = item.HunterName;
+                    detailedOrder.ProductName = item.ProductName;
+                    detailedOrder.Quantity = item.Quantity;
+                    detailedOrder.Price = item.Price;
+                    returnList.Add(detailedOrder);
+                }
+            }
+            return returnList;
+        }
+
 
         public void SetSelectedOrderDetail(object selectedItem)
         {

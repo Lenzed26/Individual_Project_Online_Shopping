@@ -10,35 +10,49 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ShopGUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AdminMainPage : Window
     {
-        public MainWindow()
+        public AdminMainPage()
         {
             InitializeComponent();
             CentreScreen();
         }
 
-        private void EnterButton_Clicked(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            MainStorePage msp = new MainStorePage();
-            msp.Show();
+            MainWindow mw = new MainWindow();
+            mw.Show();
             this.Close();
         }
 
-        private void AdminButton_Clicked(object sender, RoutedEventArgs e)
+        private void HuntersButton_Clicked(object sender, RoutedEventArgs e)
         {
-            AdminMainPage admin = new AdminMainPage();
-            admin.Show();
+            AdminHuntersPage huntersPage = new AdminHuntersPage();
+            huntersPage.Show();
             this.Close();
         }
+
+        private void OrdersButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            AdminOrdersPage ordersPage = new AdminOrdersPage();
+            ordersPage.Show();
+            this.Close();
+        }
+
+        private void ProductsButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            AdminProductsPage productsPage = new AdminProductsPage();
+            productsPage.Show();
+            this.Close();
+        }
+
         public void CentreScreen()
         {
             double screenWidth = SystemParameters.PrimaryScreenWidth;

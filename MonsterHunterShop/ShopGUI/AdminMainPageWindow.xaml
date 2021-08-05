@@ -1,0 +1,45 @@
+﻿<Window x:Class="ShopGUI.AdminMainPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShopGUI"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        Title="Admin Window" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <TextBlock FontSize="48" TextAlignment="Center">
+                Monster Hunter Shop <LineBreak/> Admin
+            </TextBlock>
+        </Label>
+        <Button x:Name="BackToMain" Grid.Column="0" Grid.Row="0" Margin="10 10" Click="BackButton_Click" materialDesign:ButtonAssist.CornerRadius="50" Height="45" Width="45">
+            <materialDesign:PackIcon Kind="ArrowLeft" />
+        </Button>
+
+        <Button x:Name="HuntersButton" Grid.Column="1" Grid.Row="3" Style="{StaticResource MaterialDesignRaisedButton}" Content="_HUNTERS" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Grid}}" Click="HuntersButton_Clicked" materialDesign:ButtonAssist.CornerRadius="5" Height="60" Width="120"/>
+        <Button x:Name="OrdersButton" Grid.Column="2" Grid.Row="3" Style="{StaticResource MaterialDesignRaisedButton}" Content="_ORDERS" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Grid}}" Click="OrdersButton_Clicked" materialDesign:ButtonAssist.CornerRadius="5" Height="60" Width="120"/>
+        <Button x:Name="ProductsButton" Grid.Column="3" Grid.Row="3" Style="{StaticResource MaterialDesignRaisedButton}" Content="_PRODUCTS" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Grid}}" Click="ProductsButton_Clicked" materialDesign:ButtonAssist.CornerRadius="5" Height="60" Width="120"/>
+
+    </Grid>
+</Window>

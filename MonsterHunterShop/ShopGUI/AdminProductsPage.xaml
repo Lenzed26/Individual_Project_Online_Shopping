@@ -1,4 +1,4 @@
-﻿<Window x:Class="ShopGUI.MainStorePage"
+﻿<Window x:Class="ShopGUI.AdminProductsPage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,7 +11,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="MainStorePage" Height="450" Width="800">
+        Title="AdminProductsPage" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -27,21 +27,23 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
+        <Button x:Name="BackToAdmin" materialDesign:ButtonAssist.CornerRadius="50" Width="45" Height="45" Click="BackToAdmin_Click">
+            <materialDesign:PackIcon Kind="ArrowLeft" />
+        </Button>
 
-        <ListView x:Name="ProductListBox" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4">
+        <ListView x:Name="ProductsListView" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="3" SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="Auto" DisplayMemberBinding="{Binding ProductName}"></GridViewColumn>
                     <GridViewColumn Header="Category" Width="Auto" DisplayMemberBinding="{Binding Category}"></GridViewColumn>
                     <GridViewColumn Header="Rarity" Width="Auto" DisplayMemberBinding="{Binding Rarity}"></GridViewColumn>
-                    <GridViewColumn Header="Price" Width="Auto" DisplayMemberBinding="{Binding UnitPrice, StringFormat={}{0}z}"></GridViewColumn>                    
+                    <GridViewColumn Header="Price" Width="Auto" DisplayMemberBinding="{Binding UnitPrice, StringFormat={}{0}z}"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="BackToMain" Grid.Column="0" Grid.Row="0" Content="{materialDesign:PackIcon Kind=ArrowLeft}" Margin="10 10" Click="BackButton_Click" materialDesign:ButtonAssist.CornerRadius="50" Height="45" Width="45"/>
-        
-
+        <Button x:Name="AddHunter_Buttom" Grid.Column="1" Grid.Row="4" Width="130" materialDesign:ButtonAssist.CornerRadius="5" Content="Add Product" Click="CreateProduct_Window"/>
+        <Button x:Name="UpdateHunter_Buttom" Grid.Column="2" Grid.Row="4" Width="130" materialDesign:ButtonAssist.CornerRadius="5" Grid.ColumnSpan="2" Content="Update Product" Click="UpdateProduct_Window"/>
+        <Button x:Name="DeleteHunter_Buttom" Grid.Column="4" Grid.Row="4" Width="130" materialDesign:ButtonAssist.CornerRadius="5" Content="Delete Product" Click="DeleteProduct_Click"/>
     </Grid>
 </Window>
