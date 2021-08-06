@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,6 +46,11 @@ namespace ShopGUI
 
         private void BackToStorePage_Click(object sender, RoutedEventArgs e)
         {
+            BackToStorePage();
+        }
+
+        private void BackToStorePage()
+        {
             MainStorePage storePage = new MainStorePage();
             storePage.Show();
             this.Close();
@@ -53,6 +59,16 @@ namespace ShopGUI
         private void CreateOrder_Click(object sender, RoutedEventArgs e)
         {
             //Create Order and OrderDetail
+            Debug.WriteLine($"[{_hunterManager.SelectedHunter.HunterId}, {_hunterManager.SelectedHunter.Name}] ordered {QuantityText.Text}x[{_productManager.SelectedProduct.ProductId}]{_productManager.SelectedProduct.ProductName} costing a total of {TotalText.Content}");
+            var dateNow = DateTime.Now.Date;
+            _orderManager.Create(_hunterManager.SelectedHunter.HunterId, dateNow);
+            var orderId = _orderManager.RetrieveAllOrders().Find(i => i.HunterId == _hunterManager.SelectedHunter.HunterId && i.OrderDate == dateNow).OrderId;
+            Debug.WriteLine($"Attempting to create order detail with Order ID of {orderId}, with Product ID {_productManager.SelectedProduct.ProductId} {_productManager.SelectedProduct.ProductName} and Hunter ID {_hunterManager.SelectedHunter.HunterId} _hunterManager.SelectedHunter.Name");
+            
+            _orderDetailsManager.Create(orderId, _productManager.SelectedProduct.ProductId, Convert.ToInt32(QuantityText.Text), _productManager.SelectedProduct.UnitPrice);
+            var orderDetailsId = _orderDetailsManager.RetrieveAllOrderDetails().Find(i => i.OrderId == orderId && i.ProductId == _productManager.SelectedProduct.ProductId).OrderDetailsId;
+            Debug.WriteLine($"OrderDetail {orderDetailsId} created");
+            BackToStorePage();
         }
 
         private void PopulateAllLabelsAndTextBox()

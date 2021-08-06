@@ -16,6 +16,9 @@ namespace ShopBusiness
         public string ProductName { get; set; }
         public int Quantity { get; set; }
         public decimal Price { get; set; }
+
+        public DateTime OrderDate { get; set; }
+        public DateTime? DeliveryDate { get; set; }
     }
 
     public class OrderDetailsManager
@@ -36,24 +39,24 @@ namespace ShopBusiness
             List<DetailedOrder> returnList = new List<DetailedOrder>();
             using (var db = new MonsterHunterContext())
             {
-                var query = db.OrderDetails.Include(o => o.Order).ThenInclude(h => h.Hunter).Include(p => p.Product).Select(o => new { OrderDetailsId = o.OrderDetailsId, OrderId = o.OrderId, ProductId = o.ProductId, HunterName = o.Order.Hunter.Name, ProductName = o.Product.ProductName, Quantity = o.Quantity, Price = o.UnitPrice });
-                        //from od in db.OrderDetails
-                        //join o in db.Orders on od.OrderId equals o.OrderId
-                        //join h in db.Hunters on o.HunterId equals h.HunterId
-                        //join p in db.Products on od.ProductId equals p.ProductId
-                        //select new
-                        //{
-                        //    OrderDetailsId = od.OrderDetailsId,
-                        //    OrderId = od.OrderId,
-                        //    ProductId = od.ProductId,
-                        //    HunterName = h.Name,
-                        //    ProductName = p.ProductName,
-                        //    Quantity = od.Quantity,
-                        //    Price = od.UnitPrice
-                        //};
+                var query = db.OrderDetails.Include(o => o.Order).ThenInclude(h => h.Hunter).Include(p => p.Product).Select(o => new { OrderDetailsId = o.OrderDetailsId, OrderId = o.OrderId, ProductId = o.ProductId, HunterName = o.Order.Hunter.Name, ProductName = o.Product.ProductName, Quantity = o.Quantity, Price = o.UnitPrice, OrderDate = o.Order.OrderDate, DeliveryDate = o.Order.DeliveryDate });
+                //from od in db.OrderDetails
+                //join o in db.Orders on od.OrderId equals o.OrderId
+                //join h in db.Hunters on o.HunterId equals h.HunterId
+                //join p in db.Products on od.ProductId equals p.ProductId
+                //select new
+                //{
+                //    OrderDetailsId = od.OrderDetailsId,
+                //    OrderId = od.OrderId,
+                //    ProductId = od.ProductId,
+                //    HunterName = h.Name,
+                //    ProductName = p.ProductName,
+                //    Quantity = od.Quantity,
+                //    Price = od.UnitPrice
+                //};
 
                 foreach (var item in query)
-                {                    
+                {
                     detailedOrder.OrderDetailsId = item.OrderDetailsId;
                     detailedOrder.OrderId = item.OrderId;
                     detailedOrder.ProductId = item.ProductId;
@@ -61,6 +64,8 @@ namespace ShopBusiness
                     detailedOrder.ProductName = item.ProductName;
                     detailedOrder.Quantity = item.Quantity;
                     detailedOrder.Price = item.Price;
+                    detailedOrder.OrderDate = item.OrderDate;
+                    detailedOrder.DeliveryDate = item.DeliveryDate;
                     returnList.Add(detailedOrder);
                 }
             }

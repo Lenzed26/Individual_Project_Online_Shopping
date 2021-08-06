@@ -31,7 +31,7 @@
         </Grid.RowDefinitions>
 
         <Label Content="Current User:" Grid.Row="1" VerticalContentAlignment="Center" FontSize="16"/>
-        <Label x:Name="CurrentUser" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+        <Label x:Name="CurrentUser" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
         <Label Content="Product:" Grid.Row="1" Grid.Column="3" FontSize="16" VerticalContentAlignment="Center"/>
         <Label Content="Quantity:" Grid.Row="2" Grid.Column="3" FontSize="16" VerticalContentAlignment="Center"/>
         <Label Content="Price:" Grid.Row="3" Grid.Column="3" FontSize="16" VerticalContentAlignment="Center"/>

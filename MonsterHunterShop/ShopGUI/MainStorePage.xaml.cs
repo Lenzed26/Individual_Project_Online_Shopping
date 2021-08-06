@@ -83,5 +83,12 @@ namespace ShopGUI
                 _productManager.SetSelectedProducted(ProductListBox.SelectedItem);
             }
         }
+
+        private void GoToCart_Window(object sender, RoutedEventArgs e)
+        {
+            UserCartPage cartPage = new UserCartPage(_hunterManager, _productManager);
+            cartPage.Show();
+            this.Close();
+        }
     }
 }
