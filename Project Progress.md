@@ -5,6 +5,7 @@
 - [Sprint 0](#sprint-0)
 - [Sprint 1](#sprint-1)
 - [Sprint 2](#sprint-2)
+- [Sprint 3](#sprint-3)
 
 ### Sprint 0
 
@@ -50,8 +51,7 @@ Goals completed:
 
 - I definitely could have spent a shorter amount of time creating dummy data for my database and allocated more time into other parts of the user story such as the GUI.
 
-
-<u>What to change:</u>
+<u>What to do/change:</u>
 
 - Allocate to a certain time frame and give each user story equal time to be done, if finished early start the next user story, if unfinished leave it and start the next user story, work on it if there is spare time.
 
@@ -79,7 +79,7 @@ Unit Tests
 
 ### Sprint 2 Review
 
-Goals Complete:
+Goals Completed:
 
 - [x] User Story 4.3 : Reading Data
 - [x] User Story 4.4 : Deleting Data
@@ -93,10 +93,51 @@ Goals Complete:
 
 - All goals have been met, basic GUI read functionality added to a ListView for Products table. All CRUD functions have been unit tested and ready to be implemented
 
-<u>The bad</u>
+<u>The bad:</u>
 
 - Creating Unit Tests and debugging them dragged the initial time schedule behind by hours, I did underestimated creating the Unit Tests with full code coverage to take  
 
-<u>What to change</u>
+<u>What to do/change</u>:
 
 - Change the GUI to include Material Design as it has a better design than the default materials.
+
+### Sprint 3 
+
+Goals for this Sprint:
+
+- [ ] User Story 4.1 : Developer/Admin side screen
+- [ ] User Story 1.3 : Navigation
+- [ ] User Story 2.2 : Adding to cart
+- [ ] User Story 2.3 : Removing from the shopping cart
+
+Before Sprint
+
+![](/Images/Sprint3GoalsBefore.jpg)
+
+After Sprint
+
+![](/Images/Sprint3GoalsAfter.jpg)
+
+### Sprint 3 Review
+
+Goals Complete:d
+
+- [x] User Story 4.1 : Developer/Admin side screen
+- [x] User Story 1.3 : Navigation
+- [ ] User Story 2.2 : Adding to cart
+- [ ] User Story 2.3 : Removing from the shopping cart
+
+**Retrospective**
+
+<u>The good:</u>
+
+- Admin side pages is fully implemented, barring order page. Fully functional pages with exception handling and quality of life backend logic.
+
+<u>The bad:</u>
+
+- Not all sprint goals were met, however it was intentional since to implement features to meet this user stories' acceptance criterias may require changes to the database, thus it may take a long time to redesign for this user story and will be left for future sprints
+
+<u>What to do/change:</u>
+
+- User Story 2.2 and 2.3 will be moved back to project backlog, and if it were to be moved back into sprint backlog include User Story 2.1 and 3.3.
+- Recheck overall goals for current sprint to ensure that they can be met

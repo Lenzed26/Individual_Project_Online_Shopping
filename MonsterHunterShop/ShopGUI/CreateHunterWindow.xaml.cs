@@ -46,7 +46,7 @@ namespace ShopGUI
             {
                 try
                 {
-                    _hunterManager.Create(HunterName_TextBox.Text, HunterLocation_TextBox.Text);
+                    _hunterManager.Create(HunterName_TextBox.Text.Trim(), HunterLocation_TextBox.Text.Trim());
                     HunterName_TextBox.Clear();
                     HunterLocation_TextBox.Clear();
                     AdminHuntersPage huntersPage = new AdminHuntersPage();

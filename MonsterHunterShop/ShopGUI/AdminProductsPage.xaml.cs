@@ -46,17 +46,24 @@ namespace ShopGUI
 
         private void CreateProduct_Window(object sender, RoutedEventArgs e)
         {
-
+            CreateProductWindow productWindow = new CreateProductWindow();
+            productWindow.Show();
+            this.Close();
         }
 
         private void UpdateProduct_Window(object sender, RoutedEventArgs e)
         {
-
+            UpdateProductWindow productWindow = new UpdateProductWindow(_productManager);
+            productWindow.Show();
+            this.Close();
         }
 
         private void DeleteProduct_Click(object sender, RoutedEventArgs e)
         {
-
+            _productManager.Delete(_productManager.SelectedProduct.ProductName);
+            ProductsListView.ItemsSource = null;
+            PopulateListView();
+            ProductsListView.SelectedItem = null;
         }
 
         private void BackToAdmin_Click(object sender, RoutedEventArgs e)

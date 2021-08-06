@@ -42,7 +42,7 @@ namespace ShopGUI
         {
             if (HunterName_TextBox.Text.Equals(_hunterManager.SelectedHunter.Name))
             {
-                _hunterManager.Update(HunterName_TextBox.Text, HunterLocation_TextBox.Text);
+                _hunterManager.Update(HunterName_TextBox.Text.Trim(), HunterLocation_TextBox.Text.Trim());
                 UpdateSelectedHunter();
                 OpenHuntersPage();
             }
@@ -50,7 +50,8 @@ namespace ShopGUI
             {
                 try
                 {
-                    _hunterManager.Update(_hunterManager.SelectedHunter.Name, HunterName_TextBox.Text, HunterLocation_TextBox.Text);
+                    _hunterManager.Update(_hunterManager.SelectedHunter.Name, HunterName_TextBox.Text.Trim(), HunterLocation_TextBox.Text.Trim());
+                    UpdateSelectedHunter();
                     OpenHuntersPage();
                 }
                 catch (ArgumentException ex)
