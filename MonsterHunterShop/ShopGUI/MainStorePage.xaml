@@ -30,7 +30,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <ListView x:Name="ProductListBox" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4">
+        <ListView x:Name="ProductListBox" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4" SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="Auto" DisplayMemberBinding="{Binding ProductName}"></GridViewColumn>
@@ -40,8 +40,12 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="BackToMain" Grid.Column="0" Grid.Row="0" Content="{materialDesign:PackIcon Kind=ArrowLeft}" Margin="10 10" Click="BackButton_Click" materialDesign:ButtonAssist.CornerRadius="50" Height="45" Width="45"/>
-        
+        <Button x:Name="BackToMain" Grid.Column="0" Grid.Row="0" Content="{materialDesign:PackIcon Kind=ArrowLeft}" Click="BackButton_Click" materialDesign:ButtonAssist.CornerRadius="30" Height="50" Width="50"/>
+        <Label Grid.Column="1" Content="Current User:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="CurrentUser" Grid.Column="2" DisplayMemberPath="Name" SelectionChanged="ChangeCurrentUser"></ComboBox>
+        <Button x:Name="GoToCart" Grid.Column="5" materialDesign:ButtonAssist.CornerRadius="30" Height="50" Width="50" Content="{materialDesign:PackIcon Kind=ShoppingBasket}"></Button>
+        <Button x:Name="AddToCart" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" Height="50" Width="120" Content="Add to Cart" ToolTip="Add Currently Selected Item to Cart" materialDesign:ButtonAssist.CornerRadius="10" IsEnabled="False" Click="AddToCartWindow"/>
+
 
     </Grid>
 </Window>
