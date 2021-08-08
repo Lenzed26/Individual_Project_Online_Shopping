@@ -18,6 +18,16 @@ namespace ShopBusiness
             }
         }
 
+        public Order ConvertToOrder(DetailedOrder detailedOrder)
+        {
+            var hunterId = 0;
+            using(var db = new MonsterHunterContext())
+            {
+                hunterId = db.Hunters.Where(i => i.Name == detailedOrder.HunterName).FirstOrDefault().HunterId;
+            }
+            return new Order() { OrderId = detailedOrder.OrderId ?? default(int), OrderDate = detailedOrder.OrderDate, DeliveryDate = detailedOrder.DeliveryDate, HunterId = hunterId };
+        }
+
         public void SetSelectedOrder(object selectedItem)
         {
             SelectedOrder = (Order)selectedItem;
@@ -87,8 +97,8 @@ namespace ShopBusiness
 
                 db.Orders.Remove(SelectedOrder);
 
-                var RemoveFromOrderDetails = db.OrderDetails.Include(o => o.Order).Where(i => i.Order.OrderId == orderId).FirstOrDefault();
-                if(RemoveFromOrderDetails != null) db.OrderDetails.Remove(RemoveFromOrderDetails);
+                //var RemoveFromOrderDetails = db.OrderDetails.Include(o => o.Order).Where(i => i.Order.OrderId == orderId).FirstOrDefault();
+                //if (RemoveFromOrderDetails != null) db.OrderDetails.Remove(RemoveFromOrderDetails);
 
                 db.SaveChanges();
             }

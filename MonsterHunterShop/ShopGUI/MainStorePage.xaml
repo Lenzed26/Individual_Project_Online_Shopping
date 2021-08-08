@@ -13,6 +13,9 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
         Title="MainStorePage" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/bhernavillageblur.jpg"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -29,8 +32,8 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
-        <ListView x:Name="ProductListBox" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4" SelectionChanged="ListView_SelectionChanged">
+        <materialDesign:Card Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4">
+        <ListView x:Name="ProductListBox"  SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="Auto" DisplayMemberBinding="{Binding ProductName}"></GridViewColumn>
@@ -40,11 +43,27 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        </materialDesign:Card>
         <Button x:Name="BackToMain" Grid.Column="0" Grid.Row="0" Content="{materialDesign:PackIcon Kind=ArrowLeft}" Click="BackButton_Click" materialDesign:ButtonAssist.CornerRadius="30" Height="50" Width="50"/>
-        <Label Grid.Column="1" Content="Current User:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <Label Grid.Column="1" Content="Current User:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="16"/>
         <ComboBox x:Name="CurrentUser" Grid.Column="2" DisplayMemberPath="Name" SelectionChanged="ChangeCurrentUser"></ComboBox>
         <Button x:Name="GoToCart" Grid.Column="5" materialDesign:ButtonAssist.CornerRadius="30" Height="50" Width="50" Content="{materialDesign:PackIcon Kind=ShoppingBasket}" Click="GoToCart_Window"></Button>
         <Button x:Name="AddToCart" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" Height="50" Width="120" Content="Add to Cart" ToolTip="Add Currently Selected Item to Cart" materialDesign:ButtonAssist.CornerRadius="10" IsEnabled="False" Click="AddToCartWindow"/>
+
+        <materialDesign:Card Grid.Column="3" Grid.ColumnSpan="2" Height="60" Width="255">
+            <DockPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                
+                    <Label Content="Search:" VerticalContentAlignment="Center" FontSize="16"/>
+                    <TextBox x:Name="SearchBar" Grid.Column="1" Grid.ColumnSpan="2" TextChanged="SearchBar_TextChanged" VerticalContentAlignment="Center"/>
+                </Grid>
+            </DockPanel>
+        </materialDesign:Card>
 
 
     </Grid>

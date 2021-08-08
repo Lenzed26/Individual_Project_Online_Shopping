@@ -1,4 +1,4 @@
-﻿<Window x:Class="ShopGUI.UserCartPage"
+﻿<Window x:Class="ShopGUI.ViewUserOrderHistory"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -10,13 +10,15 @@
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
-        FontFamily="{materialDesign:MaterialDesignFont}"        
-        Title="UserCartPage" Height="450" Width="800">
+        FontFamily="{materialDesign:MaterialDesignFont}" 
+        Title="ViewUserOrderHistory" Height="450" Width="800">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Images/bhernavillageblur.jpg"></ImageBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -34,29 +36,24 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
-        <Button x:Name="BackToAdmin" materialDesign:ButtonAssist.CornerRadius="50" Width="45" Height="45" Click="BackToMainStore_Click">
+
+        <Button x:Name="BackToAdmin" materialDesign:ButtonAssist.CornerRadius="50" Width="45" Height="45" Click="BackToUserCart_Click">
             <materialDesign:PackIcon Kind="ArrowLeft" />
         </Button>
 
-        <materialDesign:Card Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="6" Grid.RowSpan="4" Opacity="0.9">
-            <ListView x:Name="CartListView" SelectionChanged="CartList_SelectionChanged">
+        <materialDesign:Card Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="8" Grid.RowSpan="4" Opacity="0.9">
+            <ListView x:Name="CartListView">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="Auto" Header="Product Name" DisplayMemberBinding="{Binding ProductName}"/>
                         <GridViewColumn Width="Auto" Header="Quantity" DisplayMemberBinding="{Binding Quantity}"/>
                         <GridViewColumn Width="Auto" Header="Unit Price" DisplayMemberBinding="{Binding Price}"/>
                         <GridViewColumn Width="Auto" Header="Order Date" DisplayMemberBinding="{Binding OrderDate}"/>
+                        <GridViewColumn Width="Auto" Header="Delivery Date" DisplayMemberBinding="{Binding DeliveryDate}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
         </materialDesign:Card>
 
-        <Label Content="Current User:" Grid.Column="1" VerticalContentAlignment="Center" FontSize="16"/>
-        <Label x:Name="CurrentUser" Grid.Column="2" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
-        <Button Content="Purchase" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" MaxWidth="140" MinHeight="50" Click="PurchaseCart_Click" materialDesign:ButtonAssist.CornerRadius="5"/>
-        <Button x:Name="RemoveSelected" Content="Remove Selected" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" MaxWidth="140" MinHeight="50" Click="RemoveSelected_Click" materialDesign:ButtonAssist.CornerRadius="5" IsEnabled="False"/>
-        <Button Content="Remove All" Grid.Column="5" Grid.Row="5" Grid.ColumnSpan="2" MaxWidth="140" MinHeight="50" Click="RemoveAll_Click" materialDesign:ButtonAssist.CornerRadius="5"/>
-        <Button Content="View History" Grid.Column="6" Grid.ColumnSpan="2" MaxWidth="130" MinHeight="50" Click="ViewOrderHistory_Click" materialDesign:ButtonAssist.CornerRadius="5"/>
     </Grid>
 </Window>

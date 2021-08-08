@@ -13,6 +13,9 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
         Title="AddToCart" Height="450" Width="700">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/bhernavillageblur.jpg"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -29,20 +32,42 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <materialDesign:Card Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="4" Width="600">
+            <DockPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Current User:" Grid.Row="1" VerticalContentAlignment="Center" FontSize="16"/>
+                    <Label Content="Item Description:" Grid.Row="2" FontSize="16" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+                    <TextBlock Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="3" x:Name="ItemDescription" Width="290"/>
+                    <Label x:Name="CurrentUser" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+                    <Label Content="Product:" Grid.Row="1" Grid.Column="3" FontSize="16" VerticalContentAlignment="Center"/>
+                    <Label Content="Quantity:" Grid.Row="2" Grid.Column="3" FontSize="16" VerticalContentAlignment="Center"/>
+                    <Label Content="Price:" Grid.Row="3" Grid.Column="3" FontSize="16" VerticalContentAlignment="Center"/>
+                    <Label Content="Total:" Grid.Row="4" Grid.Column="3" FontSize="16" VerticalContentAlignment="Center"/>
 
-        <Label Content="Current User:" Grid.Row="1" VerticalContentAlignment="Center" FontSize="16"/>
-        <Label x:Name="CurrentUser" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
-        <Label Content="Product:" Grid.Row="1" Grid.Column="3" FontSize="16" VerticalContentAlignment="Center"/>
-        <Label Content="Quantity:" Grid.Row="2" Grid.Column="3" FontSize="16" VerticalContentAlignment="Center"/>
-        <Label Content="Price:" Grid.Row="3" Grid.Column="3" FontSize="16" VerticalContentAlignment="Center"/>
-        <Label Content="Total:" Grid.Row="4" Grid.Column="3" FontSize="16" VerticalContentAlignment="Center"/>
-
+                    <Label x:Name="ProductText" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="1"/>
+                    <TextBox x:Name="QuantityText" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="2" IsEnabled="True" TextChanged="QuantityText_Changed"/>
+                    <Label x:Name="PriceText" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="3"/>
+                    <Label x:Name="TotalText" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="4"/>
+                </Grid>
+            </DockPanel>
+        </materialDesign:Card>
         <Button Content="Cancel" Grid.Column="1" Grid.Row="5" Click="BackToStorePage_Click" materialDesign:ButtonAssist.CornerRadius="5" Height="45" Width="100" />
         <Button Content="Create" Grid.Column="4" Grid.Row="5" Click="CreateOrder_Click" materialDesign:ButtonAssist.CornerRadius="5" Height="45" Width="100" />
-
-        <Label x:Name="ProductText" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="1"/>
-        <TextBox x:Name="QuantityText" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="2" IsEnabled="True" TextChanged="QuantityText_Changed"/>
-        <Label x:Name="PriceText" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="3"/>
-        <Label x:Name="TotalText" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="4"/>
     </Grid>
 </Window>

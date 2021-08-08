@@ -13,6 +13,9 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
         Title="UpdateHunterPage" Height="450" Width="600">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/bhernavillageblurcropped.jpg"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -27,22 +30,30 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <!--<TextBox x:Name="NameTextBox" materialDesign:HintAssist.Hint="Name" materialDesign:HintAssist.HelperText="Helper text longer than error">
-            <TextBox.Text>
-                <Binding Path="Name" UpdateSourceTrigger="PropertyChanged">
-                    <Binding.ValidationRules>
-                        <domain:NotEmptyValidationRule ValidatesOnTargetUpdated="True" xmlns:domain="clr-namespace:MaterialDesignDemo.Domain" />
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-        </TextBox>-->
+        <materialDesign:Card Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="3" MaxWidth="450">
+            <DockPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Updating Hunter" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="26"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Name:" VerticalContentAlignment="Bottom" Height="65" HorizontalContentAlignment="Right"/>
+                    <TextBox x:Name="HunterName_TextBox" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Height="65" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom"/>
 
-        <Label Grid.Row="1" Grid.Column="0" Content="Name:" VerticalContentAlignment="Bottom" Height="65" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="HunterName_TextBox" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Height="65" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom"/>
-
-        <Label Grid.Row="2" Grid.Column="0" Content="Location:" VerticalContentAlignment="Bottom" Height="65" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="HunterLocation_TextBox" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Height="65" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom"/>
-
+                    <Label Grid.Row="2" Grid.Column="0" Content="Location:" VerticalContentAlignment="Bottom" Height="65" HorizontalContentAlignment="Right"/>
+                    <TextBox x:Name="HunterLocation_TextBox" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Height="65" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom"/>
+                </Grid>                
+            </DockPanel>
+        </materialDesign:Card>
         <Button Content="Update" Grid.Column="2" Grid.Row="4" materialDesign:ButtonAssist.CornerRadius="5" Width="100" Height="55" Click="UpdateHunter_Click" />
         <Button Content="Cancel" Grid.Column="1" Grid.Row="4" materialDesign:ButtonAssist.CornerRadius="5" Width="100" Height="55" Click="GoBackToHunters_Click" />
 

@@ -7,11 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\bhernavillageblur.jpg" />
+    <None Remove="Images\bhernavillageblurcropped.jpg" />
+    <None Remove="Images\bhernavillageblurupscaled.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ShopBusiness\ShopBusiness.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\bhernavillageblur.jpg" />
+    <Resource Include="Images\bhernavillageblurcropped.jpg" />
+    <Resource Include="Images\bhernavillageblurupscaled.jpg" />
   </ItemGroup>
 
 </Project>

@@ -13,6 +13,9 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
         Title="AdminProductsPage" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/bhernavillageblur.jpg"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -32,16 +35,18 @@
             <materialDesign:PackIcon Kind="ArrowLeft" />
         </Button>
 
-        <ListView x:Name="ProductsListView" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="3" SelectionChanged="ListView_SelectionChanged">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Name" Width="Auto" DisplayMemberBinding="{Binding ProductName}"></GridViewColumn>
-                    <GridViewColumn Header="Category" Width="Auto" DisplayMemberBinding="{Binding Category}"></GridViewColumn>
-                    <GridViewColumn Header="Rarity" Width="Auto" DisplayMemberBinding="{Binding Rarity}"></GridViewColumn>
-                    <GridViewColumn Header="Price" Width="Auto" DisplayMemberBinding="{Binding UnitPrice, StringFormat={}{0}z}"></GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <materialDesign:Card Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="3">
+            <ListView x:Name="ProductsListView" SelectionChanged="ListView_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name" Width="Auto" DisplayMemberBinding="{Binding ProductName}"></GridViewColumn>
+                        <GridViewColumn Header="Category" Width="Auto" DisplayMemberBinding="{Binding Category}"></GridViewColumn>
+                        <GridViewColumn Header="Rarity" Width="Auto" DisplayMemberBinding="{Binding Rarity}"></GridViewColumn>
+                        <GridViewColumn Header="Price" Width="Auto" DisplayMemberBinding="{Binding UnitPrice, StringFormat={}{0}z}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </materialDesign:Card>
         <Button x:Name="AddHunter_Buttom" Grid.Column="1" Grid.Row="4" Width="130" materialDesign:ButtonAssist.CornerRadius="5" Content="Add Product" Click="CreateProduct_Window"/>
         <Button x:Name="UpdateHunter_Buttom" Grid.Column="2" Grid.Row="4" Width="130" materialDesign:ButtonAssist.CornerRadius="5" Grid.ColumnSpan="2" Content="Update Product" Click="UpdateProduct_Window"/>
         <Button x:Name="DeleteHunter_Buttom" Grid.Column="4" Grid.Row="4" Width="130" materialDesign:ButtonAssist.CornerRadius="5" Content="Delete Product" Click="DeleteProduct_Click"/>

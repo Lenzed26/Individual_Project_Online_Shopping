@@ -120,7 +120,7 @@ After Sprint
 
 ### Sprint 3 Review
 
-Goals Complete:d
+Goals Completed:
 
 - [x] User Story 4.1 : Developer/Admin side screen
 - [x] User Story 1.3 : Navigation
@@ -135,9 +135,86 @@ Goals Complete:d
 
 <u>The bad:</u>
 
-- Not all sprint goals were met, however it was intentional since to implement features to meet this user stories' acceptance criterias may require changes to the database, thus it may take a long time to redesign for this user story and will be left for future sprints
+- Not all sprint goals were met, however it was intentional since to implement features to meet this user stories' acceptance criteria may require changes to the database, thus it may take a long time to redesign for this user story and will be left for future sprints
 
 <u>What to do/change:</u>
 
 - User Story 2.2 and 2.3 will be moved back to project backlog, and if it were to be moved back into sprint backlog include User Story 2.1 and 3.3.
 - Recheck overall goals for current sprint to ensure that they can be met
+
+### Sprint 4 
+
+Goals for this sprint:
+
+- [ ] User Story 2.1 : Shopping Cart
+- [ ] User Story 2.2 : Adding to cart
+- [ ] User Story 2.3 : Removing from the shopping cart
+- [ ] User Story 3.3 : Order History
+
+Before Sprint
+
+![](/Images/Sprint4GoalsBefore.jpg)
+
+After Sprint
+
+![](/Images/Sprint4GoalsAfter.jpg)
+
+### Sprint 4 Review
+
+Goals Completed:
+
+- [x] User Story 2.1 : Shopping Cart
+- [x] User Story 2.2 : Adding to cart
+- [x] User Story 2.3 : Removing from the shopping cart
+- [x] User Story 3.3 : Order History
+
+**Retrospective**
+
+<u>The good</u>
+
+- Majority of the epics are now complete. All user stories set have been completed for the sprint
+
+<u>The bad</u>
+
+- Nothing of note was done badly during this sprint
+
+<u>What to do/change</u>
+
+- Adding more material design and adding a background to each page in the application to make it more modern
+
+### Sprint 5 
+
+Goals for this Sprint:
+
+- [ ] User Story 1.1 : Search bar
+- [ ] Enhancement: Material Design / Stretch Goal - Make it look modern
+
+Before Sprint
+
+![](/Images/Sprint5GoalsBefore.jpg)
+
+After Sprint
+
+![](/Images/Sprint5GoalsAfter.jpg)
+
+### Sprint 5 Review
+
+Goals Completed:
+
+- [x] User Story 1.1 : Search bar
+- [x] Enhancement: Material Design / Stretch Goal - Make it look modern
+
+**Retrospective**
+
+<u>The good</u>
+
+- There is now a background image on all pages of the window, with
+
+<u>The bad</u>
+
+- There is still no separation from admin to user in the main application
+
+<u>What to do/change</u>
+
+- Add another table to comply with User Story 3.1 and 3.2
+

@@ -13,6 +13,9 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
         Title="UpdateProductWindow" Height="450" Width="600">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/bhernavillageblurcropped.jpg"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -30,21 +33,41 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Content="Name"/>
-        <TextBox x:Name="ProductName_TextBox" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Bottom"/>
+        <materialDesign:Card Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="6" Width="500">
+        <DockPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Content="Updating Product" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="26"/>
+                <Label Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Content="Name:"/>
+                <TextBox x:Name="ProductName_TextBox" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Bottom"/>
 
-        <Label Grid.Row="2" Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Content="Category"/>
-        <TextBox x:Name="ProductCategory_TextBox" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Bottom"/>
+                <Label Grid.Row="2" Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Content="Category:"/>
+                <TextBox x:Name="ProductCategory_TextBox" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Bottom"/>
 
-        <Label Grid.Row="3" Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Content="Rarity"/>
-        <TextBox x:Name="ProductRarity_TextBox" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Bottom"/>
+                <Label Grid.Row="3" Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Content="Rarity:"/>
+                <TextBox x:Name="ProductRarity_TextBox" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Bottom"/>
 
-        <Label Grid.Row="4" Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Content="Description"/>
-        <TextBox x:Name="ProductDescription_TextBox" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Bottom"/>
+                <Label Grid.Row="4" Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Content="Description:"/>
+                <TextBox x:Name="ProductDescription_TextBox" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Bottom"/>
 
-        <Label Grid.Row="5" Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Content="Price"/>
-        <TextBox x:Name="ProductPrice_TextBox" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Bottom"/>
-
+                <Label Grid.Row="5" Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Content="Price:"/>
+                <TextBox x:Name="ProductPrice_TextBox" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Bottom"/>
+            </Grid>
+        </DockPanel>
+        </materialDesign:Card>
         <Button Grid.Column="1" Grid.Row="7" Content="Cancel" Height="45" materialDesign:ButtonAssist.CornerRadius="5" Width="100" Click="BackToProducts_Click"/>
         <Button Grid.Column="2" Grid.Row="7" Content="Update" Height="45"  materialDesign:ButtonAssist.CornerRadius="5" Width="100" Click="UpdateProduct_Click" />
     </Grid>

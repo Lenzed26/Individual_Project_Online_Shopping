@@ -60,9 +60,11 @@ namespace ShopGUI
         {
             //Create Order and OrderDetail
             Debug.WriteLine($"[{_hunterManager.SelectedHunter.HunterId}, {_hunterManager.SelectedHunter.Name}] ordered {QuantityText.Text}x[{_productManager.SelectedProduct.ProductId}]{_productManager.SelectedProduct.ProductName} costing a total of {TotalText.Content}");
+            
             var dateNow = DateTime.Now.Date;
             _orderManager.Create(_hunterManager.SelectedHunter.HunterId, dateNow);
-            var orderId = _orderManager.RetrieveAllOrders().Find(i => i.HunterId == _hunterManager.SelectedHunter.HunterId && i.OrderDate == dateNow).OrderId;
+            
+            var orderId = _orderManager.RetrieveAllOrders().Where(i => i.HunterId == _hunterManager.SelectedHunter.HunterId && i.OrderDate == dateNow).LastOrDefault().OrderId;
             Debug.WriteLine($"Attempting to create order detail with Order ID of {orderId}, with Product ID {_productManager.SelectedProduct.ProductId} {_productManager.SelectedProduct.ProductName} and Hunter ID {_hunterManager.SelectedHunter.HunterId} _hunterManager.SelectedHunter.Name");
             
             _orderDetailsManager.Create(orderId, _productManager.SelectedProduct.ProductId, Convert.ToInt32(QuantityText.Text), _productManager.SelectedProduct.UnitPrice);
@@ -76,6 +78,8 @@ namespace ShopGUI
             CurrentUser.Content = _hunterManager.SelectedHunter.Name;
             ProductText.Content = _productManager.SelectedProduct.ProductName;
             PriceText.Content = _productManager.SelectedProduct.UnitPrice +"z";
+            ItemDescription.Text = _productManager.SelectedProduct.Description;
+            ItemDescription.TextWrapping = TextWrapping.WrapWithOverflow;
         }
 
         private void QuantityText_Changed(object sender, TextChangedEventArgs e)

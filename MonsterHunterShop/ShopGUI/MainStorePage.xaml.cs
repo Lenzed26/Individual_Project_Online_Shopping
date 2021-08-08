@@ -35,6 +35,7 @@ namespace ShopGUI
         private void PopulateComboBox()
         {
             AddToCart.IsEnabled = false;
+            GoToCart.IsEnabled = false;
             CurrentUser.ItemsSource = _hunterManager.RetrieveAllHunters();
             CurrentUser.SelectedItem = null;
             CurrentUser.Text = "--SELECT--";
@@ -74,6 +75,7 @@ namespace ShopGUI
             _hunterManager.SetSelectedHunter(CurrentUser.SelectedItem);
             //Debug.WriteLine($"{_hunterManager.SelectedHunter.Name} from {_hunterManager.SelectedHunter.Location} selected");
             AddToCart.IsEnabled = true;
+            GoToCart.IsEnabled = true;
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -89,6 +91,16 @@ namespace ShopGUI
             UserCartPage cartPage = new UserCartPage(_hunterManager, _productManager);
             cartPage.Show();
             this.Close();
+        }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ProductListBox.ItemsSource = null;
+            ProductListBox.ItemsSource = _productManager.RetrieveAllProducts().Where(i => 
+            i.ProductName.Contains(SearchBar.Text, StringComparison.OrdinalIgnoreCase) ||
+            i.Description.Contains(SearchBar.Text, StringComparison.OrdinalIgnoreCase) ||
+            i.Category.Contains(SearchBar.Text, StringComparison.OrdinalIgnoreCase) || 
+            i.Rarity.ToString().Contains(SearchBar.Text, StringComparison.OrdinalIgnoreCase));
         }
     }
 }
