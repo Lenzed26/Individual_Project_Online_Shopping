@@ -208,7 +208,7 @@ Goals Completed:
 
 <u>The good</u>
 
-- There is now a background image on all pages of the window, with
+- There is now a background image on all pages of the window, with material design added for all pages including admin side. 
 
 <u>The bad</u>
 
@@ -217,4 +217,38 @@ Goals Completed:
 <u>What to do/change</u>
 
 - Add another table to comply with User Story 3.1 and 3.2
+
+### Sprint 6 
+
+Goals for this Sprint:
+
+- [ ] User Story 3.1 : Log In
+- [ ] User Story 3.2 : Register Screen
+
+Before Sprint
+
+![](/Images/Sprint6GoalsBefore.jpg)
+
+![](/Images/Sprint6GoalsAfter.jpg)
+
+### Sprint 6 Review
+
+Goals Completed:
+
+- [ ] User Story 3.1 : Log In
+- [ ] User Story 3.2 : Register Screen
+
+**Retrospective**
+
+<u>The good</u>:
+
+- This product has been given the final OK from the product owner, despite missing 2 user stories. It has all the main functionalities and can be reformed/refactored 
+
+<u>The bad:</u>
+
+- Due to time constraints there was not enough time to fully complete the last two user stories, instead of leaving it half finished I decided to revert it back to the previous working state.
+
+<u>What to do/change:</u>
+
+- For the future, if I were to implement a registration and log in page I will prioritise it first above all else.
 
