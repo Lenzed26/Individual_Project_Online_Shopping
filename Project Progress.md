@@ -18,8 +18,6 @@ ERD
 
 ![](/Images/MonsterHunterShopERD.jpg)
 
-Wireframe
-
 ### Sprint 1
 
 Goals for this sprint are:
