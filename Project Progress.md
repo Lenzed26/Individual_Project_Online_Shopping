@@ -6,6 +6,11 @@
 - [Sprint 1](#sprint-1)
 - [Sprint 2](#sprint-2)
 - [Sprint 3](#sprint-3)
+- [Sprint 4](#sprint-4)
+- [Sprint 5](#sprint-5)
+- [Sprint 6](#sprint-6)
+- [Project Retrospective](#project-retrospective)
+- [Class Diagram for Database](#class-diagram-for-database)
 
 ### Sprint 0
 
@@ -242,7 +247,7 @@ Goals Completed:
 
 <u>The good</u>:
 
-- This product has been given the final OK from the product owner, despite missing 2 user stories. It has all the main functionalities and can be reformed/refactored 
+- This product has been given the final OK from the product owner, despite missing 2 user stories. It has all the main functionalities and can definitely be reformed/refactored to include the last 2 user stories.
 
 <u>The bad:</u>
 
@@ -251,4 +256,25 @@ Goals Completed:
 <u>What to do/change:</u>
 
 - For the future, if I were to implement a registration and log in page I will prioritise it first above all else.
+
+### Project Retrospective
+
+<u>What went well?</u>
+
+- I have achieved a MVP (Minimum Viable Product) for my project and I am overall satisfied with how it works, both with the backend and frontend of things.
+- Utilising GitHub to ensure that I have something to fall back to in case of a fatal human error or finding an unfixable bug/issue
+- Working on this project solo meant that I had to work as both the developer, tester and product owner, giving me experience on how to think on a product through all three point of views.
+
+<u>What could be improved?</u>
+
+- Time management - there have been sprints in which I was unable to complete all objectives, however this is due to underestimation of the difficulty of the task which was not checked before hand.
+
+<u>Actions for the future</u>
+
+- Utilise Agile methods more, being able to have an increment to show makes it easy to see the progress of your project at the end of each sprint and gives you more direction on which user story can be implemented next
+- Stick to time constraints - despite sprints already having a time constraint, by limiting each user story to a time constraint then you can temporarily hold off on user stories that aren't finished, categorise them as blockers and work on them at a later sprint.
+
+### Class Diagram for Database
+
+![](/Images/ProjectprogressClassDiagram.jpg)
 
