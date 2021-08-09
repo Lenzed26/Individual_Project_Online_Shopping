@@ -274,5 +274,5 @@ Goals Completed:
 
 ### Class Diagram for Database
 
-![](/Images/ProjectprogressClassDiagram.jpg)
+![](/Images/ProjectProgressClassDiagram.jpg)
 
