@@ -17,10 +17,5 @@ namespace ShopData
         public string Location { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
-
-        public override string ToString()
-        {
-            return $"{HunterId}: {Name} - {Location}"; 
-        }
     }
 }

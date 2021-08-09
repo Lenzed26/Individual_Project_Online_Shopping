@@ -15,10 +15,5 @@ namespace ShopData
 
         public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }
-
-        public override string ToString()
-        {
-            return $"[{OrderId},{ProductId}]: {Quantity} * {UnitPrice}z";
-        }
     }
 }

@@ -63,13 +63,13 @@ namespace ShopData
                 entity.HasOne(d => d.Hunter)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.HunterId)
-                    .HasConstraintName("FK__Orders__HunterID__3B75D760");
+                    .HasConstraintName("FK__Orders__HunterID__25869641");
             });
 
             modelBuilder.Entity<OrderDetail>(entity =>
             {
                 entity.HasKey(e => e.OrderDetailsId)
-                    .HasName("PK__OrderDet__9DD74D9DB4A3BD23");
+                    .HasName("PK__OrderDet__9DD74D9D6FB1F51A");
 
                 entity.Property(e => e.OrderDetailsId).HasColumnName("OrderDetailsID");
 
@@ -82,12 +82,12 @@ namespace ShopData
                 entity.HasOne(d => d.Order)
                     .WithMany(p => p.OrderDetails)
                     .HasForeignKey(d => d.OrderId)
-                    .HasConstraintName("FK__OrderDeta__Order__403A8C7D");
+                    .HasConstraintName("FK__OrderDeta__Order__2A4B4B5E");
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.OrderDetails)
                     .HasForeignKey(d => d.ProductId)
-                    .HasConstraintName("FK__OrderDeta__Produ__49C3F6B7");
+                    .HasConstraintName("FK__OrderDeta__Produ__2B3F6F97");
             });
 
             modelBuilder.Entity<Product>(entity =>
