@@ -1,13 +1,13 @@
 ﻿USE master;
 go
 
-DROP DATABASE IF EXISTS MonsterHunterTest;
+DROP DATABASE IF EXISTS MonsterHunter;
 go
 
-CREATE DATABASE MonsterHunterTest;
+CREATE DATABASE MonsterHunter;
 go
 
-USE MonsterHunterTest;
+USE MonsterHunter;
 go
 
 DROP TABLE IF EXISTS OrderDetails;
