@@ -18,8 +18,6 @@ ERD
 
 ![](/Images/MonsterHunterShopERD.jpg)
 
-Wireframe
-
 ### Sprint 1
 
 Goals for this sprint are:
@@ -276,5 +274,5 @@ Goals Completed:
 
 ### Class Diagram for Database
 
-![](/Images/ProjectprogressClassDiagram.jpg)
+![](/Images/ProjectProgressClassDiagram.jpg)
 
