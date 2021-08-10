@@ -1,15 +1,20 @@
 ﻿USE master;
+go
 
-DROP DATABASE IF EXISTS MonsterHunter;
+DROP DATABASE IF EXISTS MonsterHunterTest;
+go
 
-CREATE DATABASE MonsterHunter;
+CREATE DATABASE MonsterHunterTest;
+go
 
-USE MonsterHunter;
+USE MonsterHunterTest;
+go
 
 DROP TABLE IF EXISTS OrderDetails;
 DROP TABLE IF EXISTS Products;
 DROP TABLE IF EXISTS Orders;
 DROP TABLE IF EXISTS Hunters;
+go
 
 CREATE TABLE Hunters (
 	HunterID int IDENTITY(1,1) PRIMARY KEY,
