@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using ShopBusiness;
 
 namespace ShopGUI
@@ -44,10 +35,10 @@ namespace ShopGUI
         }
 
         private void PopulateListView()
-        {
-            //And populate User label
+        {            
             CurrentUser.Content = _hunterManager.SelectedHunter.Name;
-            CartListView.ItemsSource = _orderDetailsManager.RetrieveAllDetailedOrders().Where(i => i.HunterName == _hunterManager.SelectedHunter.Name && i.DeliveryDate == null);
+            CartListView.ItemsSource = _orderDetailsManager.RetrieveAllDetailedOrders()
+                .Where(i => i.HunterName == _hunterManager.SelectedHunter.Name && i.DeliveryDate == null);
         }
 
         private void BackToMainStore_Click(object sender, RoutedEventArgs e)
@@ -112,10 +103,7 @@ namespace ShopGUI
                 _orderDetailsManager.SetSelectedOrderDetail(_orderDetailsManager.ConvertToOrderDetail((DetailedOrder)CartListView.SelectedItem));
                 _orderManager.SetSelectedOrder(_orderManager.ConvertToOrder((DetailedOrder)CartListView.SelectedItem));
             }
-            RemoveSelected.IsEnabled = true;
-
-            Debug.WriteLine($"[{_orderDetailsManager.SelectedOrderDetail.OrderDetailsId}, {_orderDetailsManager.SelectedOrderDetail.OrderId}, {_orderDetailsManager.SelectedOrderDetail.ProductId}, {_orderDetailsManager.SelectedOrderDetail.Quantity}, {_orderDetailsManager.SelectedOrderDetail.UnitPrice}]");
-            Debug.WriteLine($"[{_orderManager.SelectedOrder.OrderId}, {_orderManager.SelectedOrder.HunterId}, {_orderManager.SelectedOrder.OrderDate}, {_orderManager.SelectedOrder.DeliveryDate}]");
+            RemoveSelected.IsEnabled = true;            
         }
 
         private void ViewOrderHistory_Click(object sender, RoutedEventArgs e)
