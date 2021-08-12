@@ -1,16 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using ShopBusiness;
 
 namespace ShopGUI
@@ -73,16 +62,21 @@ namespace ShopGUI
 
         private void BackToProducts_Click(object sender, RoutedEventArgs e)
         {
+            ClearTextBoxFields();
             OpenProductsPage();
         }
 
-        private void OpenProductsPage()
+        private void ClearTextBoxFields()
         {
             ProductName_TextBox.Clear();
             ProductRarity_TextBox.Clear();
             ProductCategory_TextBox.Clear();
             ProductDescription_TextBox.Clear();
             ProductPrice_TextBox.Clear();
+        }
+
+        private void OpenProductsPage()
+        {            
             AdminProductsPage productsPage = new AdminProductsPage();
             productsPage.Show();
             this.Close();
@@ -95,7 +89,6 @@ namespace ShopGUI
             ProductDescription_TextBox.Text = _productManager.SelectedProduct.Description;
             ProductPrice_TextBox.Text = _productManager.SelectedProduct.UnitPrice.ToString();
             ProductCategory_TextBox.Text = _productManager.SelectedProduct.Category;
-
         }
     }
 }
