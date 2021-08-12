@@ -58,15 +58,15 @@ namespace ShopBusiness
         {
             using (var db = new MonsterHunterContext())
             {                
-                if (CheckDuplicate(newName) == true)
-                {
-                    return false;                    
-                }
-                else
+                if (CheckDuplicate(newName) == false)
                 {
                     SelectedHunter.Name = newName;
                     SelectedHunter.Location = location;
                     db.SaveChanges();
+                }
+                else
+                {
+                    throw new ArgumentException($"User with name {newName} already exists");
                 }
             }
             return true;
