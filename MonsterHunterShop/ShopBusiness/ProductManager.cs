@@ -29,9 +29,8 @@ namespace ShopBusiness
         {
             var newProduct = new Product() { ProductName = productName, Category = category, Rarity = rarity, UnitPrice = price, Description = description };
             using (var db = new MonsterHunterContext())
-            {
-                var checkDuplicate = db.Products.Where(p => p.ProductName.Equals(productName)).FirstOrDefault();
-                if (checkDuplicate == null)
+            {                
+                if (CheckDuplicate(productName) == false)
                 {
                     db.Products.Add(newProduct);
                     db.SaveChanges();
@@ -104,6 +103,22 @@ namespace ShopBusiness
                 db.SaveChanges();
             }
             return true;
+        }
+
+        public bool CheckDuplicate(string productName)
+        {
+            using (var db = new MonsterHunterContext())
+            {
+                var query = db.Products.Where(p => p.ProductName.Equals(productName)).FirstOrDefault();
+                if (query == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
         }
     }
 }
