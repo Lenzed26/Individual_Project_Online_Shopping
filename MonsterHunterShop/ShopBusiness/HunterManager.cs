@@ -43,9 +43,8 @@ namespace ShopBusiness
         public bool Update(string name, string location)
         {
             using (var db = new MonsterHunterContext())
-            {
-                SelectedHunter = db.Hunters.Where(u => u.Name.Equals(name)).FirstOrDefault();
-                if(SelectedHunter == null)
+            {                
+                if(CheckDuplicate(name) == true)
                 {
                     return false;
                 }
@@ -58,21 +57,16 @@ namespace ShopBusiness
         public bool Update(string oldName, string newName, string location)
         {
             using (var db = new MonsterHunterContext())
-            {
-                SelectedHunter = db.Hunters.Where(u => u.Name.Equals(oldName)).FirstOrDefault();
-                if (SelectedHunter == null)
+            {                
+                if (CheckDuplicate(newName) == true)
                 {
-                    return false;
+                    return false;                    
                 }
-                if (CheckDuplicate(newName) == false)
+                else
                 {
                     SelectedHunter.Name = newName;
                     SelectedHunter.Location = location;
                     db.SaveChanges();
-                }
-                else
-                {
-                    throw new ArgumentException($"User with name {newName} already exists");
                 }
             }
             return true;
