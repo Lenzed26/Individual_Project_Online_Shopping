@@ -1,16 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using ShopBusiness;
 
 namespace ShopGUI
@@ -38,7 +27,8 @@ namespace ShopGUI
 
         private void CreateHunter_Click(object sender, RoutedEventArgs e)
         {
-            if(HunterName_TextBox.Text == null || HunterLocation_TextBox == null || HunterName_TextBox.Text == String.Empty || HunterLocation_TextBox.Text == String.Empty)
+            if(HunterName_TextBox.Text == null || HunterLocation_TextBox == null || 
+                HunterName_TextBox.Text == String.Empty || HunterLocation_TextBox.Text == String.Empty)
             {
                 MessageBox.Show("Please fill in all the fields");
             }
@@ -49,24 +39,27 @@ namespace ShopGUI
                     _hunterManager.Create(HunterName_TextBox.Text.Trim(), HunterLocation_TextBox.Text.Trim());
                     HunterName_TextBox.Clear();
                     HunterLocation_TextBox.Clear();
-                    AdminHuntersPage huntersPage = new AdminHuntersPage();
-                    huntersPage.Show();
-                    this.Close();
+                    CreateAdminHunterWindow();
                 }
-                catch(ArgumentException ex)
+                catch (ArgumentException ex)
                 {
                     MessageBox.Show("User already exists.\nPlease enter a new name");
                 }
             }
         }
 
+        private void CreateAdminHunterWindow()
+        {
+            AdminHuntersPage huntersPage = new AdminHuntersPage();
+            huntersPage.Show();
+            this.Close();
+        }
+
         private void GoBackToHunters_Click(object sender, RoutedEventArgs e)
         {
             HunterName_TextBox.Clear();
             HunterLocation_TextBox.Clear();
-            AdminHuntersPage huntersPage = new AdminHuntersPage();
-            huntersPage.Show();
-            this.Close();
+            CreateAdminHunterWindow();
         }
     }
 }
