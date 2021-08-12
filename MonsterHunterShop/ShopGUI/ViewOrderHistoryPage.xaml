@@ -38,7 +38,7 @@
         </Grid.RowDefinitions>
 
         <materialDesign:Card Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="5">
-            <ListView x:Name="OrdersListView" SelectionChanged="ListView_SelectionChanged">
+            <ListView x:Name="OrdersListView">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="Auto" Header="Order ID" DisplayMemberBinding="{Binding OrderId}"></GridViewColumn>
