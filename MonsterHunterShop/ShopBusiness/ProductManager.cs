@@ -30,7 +30,7 @@ namespace ShopBusiness
             var newProduct = new Product() { ProductName = productName, Category = category, Rarity = rarity, UnitPrice = price, Description = description };
             using (var db = new MonsterHunterContext())
             {                
-                if (CheckDuplicate(productName) == false)
+                if (CheckDuplicate(productName) == true)
                 {
                     db.Products.Add(newProduct);
                     db.SaveChanges();
@@ -45,9 +45,8 @@ namespace ShopBusiness
         public bool Update(string productName, string category, int rarity, decimal price, string description = null)
         {
             using (var db = new MonsterHunterContext())
-            {
-                SelectedProduct = db.Products.Where(p => p.ProductName.Equals(productName)).FirstOrDefault();
-                if(SelectedProduct == null)
+            {                
+                if(CheckDuplicate(productName) == true)
                 {
                     return false;
                 }
@@ -65,9 +64,8 @@ namespace ShopBusiness
         public bool Update(string oldProductName, string newProductName, string category, int rarity, decimal price, string description = null)
         {
             using (var db = new MonsterHunterContext())
-            {
-                SelectedProduct = db.Products.Where(p => p.ProductName.Equals(oldProductName)).FirstOrDefault();
-                if (SelectedProduct == null)
+            {                
+                if (CheckDuplicate(newProductName) == true)
                 {
                     return false;
                 }
