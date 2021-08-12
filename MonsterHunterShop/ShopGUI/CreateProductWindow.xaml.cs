@@ -1,16 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using ShopBusiness;
 
 namespace ShopGUI
@@ -38,10 +27,7 @@ namespace ShopGUI
 
         private void CreateProduct_Click(object sender, RoutedEventArgs e)
         {
-            if(ProductName_TextBox == null || ProductRarity_TextBox == null ||
-               ProductCategory_TextBox == null || ProductPrice_TextBox == null ||
-               ProductPrice_TextBox.Text == String.Empty || ProductName_TextBox.Text == String.Empty || 
-               ProductRarity_TextBox.Text == String.Empty || ProductCategory_TextBox.Text == String.Empty)
+            if (CheckIfEmpty())
             {
                 MessageBox.Show("Please fill in Name, Category and Rarity.\nDescription can be left empty");
             }
@@ -60,6 +46,14 @@ namespace ShopGUI
             }
         }
 
+        private bool CheckIfEmpty()
+        {
+            return ProductName_TextBox == null || ProductRarity_TextBox == null ||
+                   ProductCategory_TextBox == null || ProductPrice_TextBox == null ||
+                   ProductPrice_TextBox.Text == String.Empty || ProductName_TextBox.Text == String.Empty ||
+                   ProductRarity_TextBox.Text == String.Empty || ProductCategory_TextBox.Text == String.Empty;
+        }
+
         private void BackToProducts_Click(object sender, RoutedEventArgs e)
         {
             OpenProductsPage();
@@ -72,6 +66,11 @@ namespace ShopGUI
             ProductCategory_TextBox.Clear();
             ProductDescription_TextBox.Clear();
             ProductPrice_TextBox.Clear();
+            CreateAdminProductsWindow();
+        }
+
+        private void CreateAdminProductsWindow()
+        {
             AdminProductsPage productsPage = new AdminProductsPage();
             productsPage.Show();
             this.Close();
