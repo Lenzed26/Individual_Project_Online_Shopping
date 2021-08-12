@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 using ShopData;
 
 namespace ShopBusiness
@@ -96,10 +95,6 @@ namespace ShopBusiness
                 }
 
                 db.Orders.Remove(SelectedOrder);
-
-                //var RemoveFromOrderDetails = db.OrderDetails.Include(o => o.Order).Where(i => i.Order.OrderId == orderId).FirstOrDefault();
-                //if (RemoveFromOrderDetails != null) db.OrderDetails.Remove(RemoveFromOrderDetails);
-
                 db.SaveChanges();
             }
             return true;

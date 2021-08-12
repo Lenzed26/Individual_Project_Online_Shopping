@@ -59,21 +59,6 @@ namespace ShopBusiness
                         Price = o.UnitPrice,
                         OrderDate = o.Order.OrderDate,
                         DeliveryDate = o.Order.DeliveryDate });
-                //from od in db.OrderDetails
-                //join o in db.Orders on od.OrderId equals o.OrderId
-                //join h in db.Hunters on o.HunterId equals h.HunterId
-                //join p in db.Products on od.ProductId equals p.ProductId
-                //select new
-                //{
-                //    OrderDetailsId = od.OrderDetailsId,
-                //    OrderId = od.OrderId,
-                //    ProductId = od.ProductId,
-                //    HunterName = h.Name,
-                //    ProductName = p.ProductName,
-                //    Quantity = od.Quantity,
-                //    Price = od.UnitPrice,
-                //    DeliveryDate = o.DeliveryDate  
-                //};
 
                 foreach (var item in query)
                 {
