@@ -3,19 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using ShopData;
+using ShopData.Services;
 
 namespace ShopBusiness
 {
     public class HunterManager
     {
+        private IHunterService _service;
+
+        public HunterManager(IHunterService service)
+        {
+            if (service == null)
+            {
+                throw new ArgumentException("IHunterService object cannot be null");
+            }
+            _service = service;
+        }
+
+        public HunterManager()
+        {
+            _service = new HunterService();
+        }
+
         public Hunter SelectedHunter { get; set; }
 
         public List<Hunter> RetrieveAllHunters()
         {
-            using (var db = new MonsterHunterContext())
-            {
-                return db.Hunters.ToList();
-            }
+            return _service.GetHunterList();
         }
 
         public void SetSelectedHunter(object selectedItem)
@@ -26,89 +40,79 @@ namespace ShopBusiness
         public void Create(string name, string location)
         {
             var newHunter = new Hunter() { Name = name, Location = location };
-            using (var db = new MonsterHunterContext())
+            
+            if (CheckDuplicate(name) == true)
             {
-                if (CheckDuplicate(name) == false)
-                {
-                    db.Hunters.Add(newHunter);
-                    db.SaveChanges();
-                }
-                else
-                {
-                    throw new ArgumentException("User already exists");
-                }
+                _service.CreateHunter(newHunter);
+            }
+            else
+            {
+                throw new ArgumentException("User already exists");
             }
         }
 
         public bool Update(string name, string location)
         {
-            using (var db = new MonsterHunterContext())
-            {                
-                if(CheckDuplicate(name) == true)
-                {
-                    return false;
-                }
-                SelectedHunter.Location = location;
-                db.SaveChanges();
+            var customer = _service.GetHunterByName(name);     
+            
+            if(customer == null)
+            {
+                return false;
             }
+
+            customer.Location = location;            
+
+            try
+            {
+                _service.SaveHunterChanges();
+                SelectedHunter = customer;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }            
             return true;
         }
 
         public bool Update(string oldName, string newName, string location)
         {
-            using (var db = new MonsterHunterContext())
-            {                
-                if (CheckDuplicate(newName) == false)
-                {
-                    SelectedHunter.Name = newName;
-                    SelectedHunter.Location = location;
-                    db.SaveChanges();
-                }
-                else
-                {
-                    throw new ArgumentException($"User with name {newName} already exists");
-                }
+            var customer = _service.GetHunterByName(oldName);
+            
+            if (CheckDuplicate(newName) == false || customer == null)
+            {
+                return false;
             }
+
+            customer.Name = newName;
+            customer.Location = location;
+            _service.SaveHunterChanges(); 
+            
             return true;
         }
 
         public bool Delete(string name)
-        {
-            using (var db = new MonsterHunterContext())
+        {            
+            SelectedHunter = _service.GetHunterByName(name);
+            if(SelectedHunter == null)
             {
-                SelectedHunter = db.Hunters.Where(u => u.Name.Equals(name)).FirstOrDefault();
-                if(SelectedHunter == null)
-                {
-                    return false;
-                }
-
-                db.Remove(SelectedHunter);
-
-                var RemoveFromOrders = db.Orders.Include(h => h.Hunter).Where(n => n.Hunter.Name.Equals(name)).FirstOrDefault();
-                if(RemoveFromOrders != null) db.Remove(RemoveFromOrders);
-
-                var RemoveFromOrderDetails = db.OrderDetails.Include(o => o.Order).ThenInclude(h => h.Hunter).Where(n => n.Order.Hunter.Name.Equals(name)).FirstOrDefault();
-                if (RemoveFromOrderDetails != null) db.Remove(RemoveFromOrderDetails);
-
-                db.SaveChanges();
+                return false;
             }
+            _service.RemoveHunter(SelectedHunter);
+            _service.SaveHunterChanges();
             return true;
         }
 
         public bool CheckDuplicate(string name)
-        {
-            using (var db = new MonsterHunterContext())
+        {            
+            var query = _service.GetHunterByName(name);
+            if(query == null)
             {
-                var query = db.Hunters.Where(u => u.Name.Equals(name)).FirstOrDefault();
-                if(query == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+                return true;
             }
+            else
+            {
+                return false;
+            }            
         }
     }
 }

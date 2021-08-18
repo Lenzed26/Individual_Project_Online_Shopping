@@ -47,7 +47,6 @@ namespace ShopTests
                 db.Products.RemoveRange(testProduct);
                 db.SaveChanges();
             }
-
         }
 
         [Test]
